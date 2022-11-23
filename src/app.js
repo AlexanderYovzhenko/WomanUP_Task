@@ -1,4 +1,5 @@
 import Express from "express";
+import cors from 'cors';
 import bodyParser from "body-parser";
 import todoRoutes from "./resources/todo/todo.router";
 
