@@ -4,6 +4,8 @@ import todoRoutes from "./resources/todo/todo.router";
 
 export const app = new Express();
 
+app.use(cors());
+
 app.use(bodyParser.json());
 
 app.use('', todoRoutes);
