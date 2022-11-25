@@ -1,7 +1,7 @@
-import Express from "express";
+import Express from 'express';
 import cors from 'cors';
-import bodyParser from "body-parser";
-import todoRoutes from "./resources/todo/todo.router";
+import bodyParser from 'body-parser';
+import todoRoutes from './resources/todo/todo.router';
 
 export const app = new Express();
 

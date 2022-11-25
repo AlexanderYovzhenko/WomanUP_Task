@@ -1,15 +1,20 @@
 import express from 'express';
 import statusCode from '../../common/status.code';
-import { addTask, deleteTask, getTask, getTasks, getTasksAtPage, updateTask } from './todo.controller';
+import {
+  addTask,
+  deleteTask,
+  getTask,
+  getTasks,
+  getTasksAtPage,
+  updateTask,
+} from './todo.controller';
 
-const router = express.Router()
-
+const router = express.Router();
 
 router.get('/', (_, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.status(statusCode.OK).send('Service is running!');
 });
-
 
 router.get('/todo', getTasks);
 router.get('/todo/:taskId', getTask);
