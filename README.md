@@ -28,5 +28,11 @@
         <li><font color="red">DELETE</font> <u>todo/:taskId</u> - delete task by id, Param(taskId - id by task)</li>
       </ul>
     </li>
+    <br>
+    <li><h3><u>localhost:4000/file</u> - upload file</h3> 
+      <ul>
+        <li><font color="4040ff">POST</font> <u>file</u> - upload file, key - file</li>
+      </ul>
+    </li>
 </ul>
 </p>
