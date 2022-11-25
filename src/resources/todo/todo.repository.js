@@ -22,7 +22,7 @@ const getTasksDb = async (paramFilter) => {
 
 /**
  * Returns object task with ID task equal taskID
- * @param taskID -first argument ID task
+ * @param taskID first argument ID task
  * @returns Object task with ID task or null
  */
 const getTaskDb = async (taskId) => {
@@ -45,7 +45,7 @@ const getTasksAtPageDb = async (numberStartTasks, amountItemAtPage) => {
 
 /**
  * Add object new task in array tasks(Task)
- * @param task -first argument new task
+ * @param task first argument new task
  * @returns new task
  */
 const addTaskDb = async (newTask) => {

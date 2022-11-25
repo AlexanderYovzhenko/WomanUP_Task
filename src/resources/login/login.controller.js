@@ -4,6 +4,12 @@ import { addUserDb, getUserDb } from './login.repository';
 import { JWT_SECRET_KEY } from '../../common/config';
 import { checkHashPassword, setHashPassword } from '../../bcrypt/bcrypt';
 
+/**
+ * Registration new user or error if login is busy
+ * @param req request
+ * @param res response
+ * @returns void
+ */
 const userRegistration = async (req, res) => {
   const newUser = req.body;
   const user = await getUserDb(newUser.login);
@@ -17,6 +23,12 @@ const userRegistration = async (req, res) => {
   }
 };
 
+/**
+ * Check login and password user. Get token correct user
+ * @param req request
+ * @param res response
+ * @returns void
+ */
 const userAuthorization = async (req, res) => {
   const notCorrectAuthorization = 'Wrong login/password combination!';
   const { login, password } = req.body;

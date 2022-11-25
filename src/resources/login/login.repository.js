@@ -2,7 +2,7 @@ import User from './login.model';
 
 /**
  * Returns object user with login user equal login
- * @param login -first argument login of user
+ * @param login first argument login of user
  * @returns Object user with login user or null
  */
 const getUserDb = async (login) => {
@@ -12,7 +12,7 @@ const getUserDb = async (login) => {
 
 /**
  * Add object new user in array users(User)
- * @param newUser -first argument new user
+ * @param newUser first argument new user
  * @returns new user
  */
 const addUserDb = async (newUser) => {
