@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import statusCode from '../../common/status.code';
 import {
   addTaskDb,
@@ -8,7 +9,7 @@ import {
   updateTaskDb,
 } from './todo.repository';
 
-const getTasks = async (_, res) => {
+const getTasks = async (req, res) => {
   const tasks = await getTasksDb();
   res.header('Access-Control-Allow-Origin', '*');
   res.status(statusCode.OK).send(tasks);
@@ -16,14 +17,21 @@ const getTasks = async (_, res) => {
 
 const getTask = async (req, res) => {
   const { taskId } = req.params;
-  const task = await getTaskDb(taskId);
-  res.header('Access-Control-Allow-Origin', '*');
-  res.status(statusCode.OK).send(task);
+  if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    res.status(statusCode.BAD_REQUEST).send('ID is not valid');
+  } else {
+    const task = await getTaskDb(taskId);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.status(statusCode.OK).send(task);
+  }
 };
 
 const getTasksAtPage = async (req, res) => {
-  const { page } = req.params;
-  const tasks = await getTasksAtPageDb(page);
+  const pageParam = req.params.page;
+  const page = pageParam && typeof(pageParam === 'number') && +pageParam !== 0 ? pageParam : 1;
+  const amountItemAtPage = 3;
+  const numberStartTasks = page * amountItemAtPage - amountItemAtPage;
+  const tasks = await getTasksAtPageDb(numberStartTasks, amountItemAtPage);
   res.header('Access-Control-Allow-Origin', '*');
   res.status(statusCode.OK).send(tasks);
 };
@@ -36,18 +44,26 @@ const addTask = async (req, res) => {
 };
 
 const updateTask = async (req, res) => {
-  const updateTask = req.body;
   const { taskId } = req.params;
-  const task = await updateTaskDb(taskId, updateTask);
-  res.header('Access-Control-Allow-Origin', '*');
-  res.status(statusCode.CREATED).send(task);
+  if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    res.status(statusCode.BAD_REQUEST).send('ID is not valid');
+  } else {
+    const updateTask = req.body;
+    await updateTaskDb(taskId, updateTask);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.status(statusCode.CREATED).send(await getTaskDb(taskId));
+  }
 };
 
 const deleteTask = async (req, res) => {
   const { taskId } = req.params;
-  await deleteTaskDb(taskId);
-  res.header('Access-Control-Allow-Origin', '*');
-  res.status(statusCode.NO_CONTENT).send();
+  if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    res.status(statusCode.BAD_REQUEST).send('ID is not valid');
+  } else {
+    await deleteTaskDb(taskId);
+    res.header('Access-Control-Allow-Origin', '*');
+    res.status(statusCode.NO_CONTENT).send();
+  }
 };
 
 export { getTasks, getTask, getTasksAtPage, addTask, updateTask, deleteTask };

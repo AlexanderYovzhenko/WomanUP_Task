@@ -5,7 +5,7 @@ import Task from './todo.model';
  * @returns array tasks
  */
 const getTasksDb = async () => {
-  const tasks = await Task.find({});
+  const tasks = await Task.find();
   return tasks;
 };
 
@@ -21,11 +21,15 @@ const getTaskDb = async (taskId) => {
 
 /**
  * Returns array tasks of need page(Task)
+ * @param numberStartTasks number start need task
+ * @param amountItemAtPage amount task in page
  * @returns array tasks
  */
-const getTasksAtPageDb = async (page) => {
-  // const tasks = await Task.find({});
-  // return tasks;
+const getTasksAtPageDb = async (numberStartTasks, amountItemAtPage) => {
+  const tasks = await Task.find()
+    .skip(numberStartTasks)
+    .limit(amountItemAtPage);
+  return tasks;
 };
 
 /**
@@ -35,9 +39,7 @@ const getTasksAtPageDb = async (page) => {
  */
 const addTaskDb = async (newTask) => {
   const task = await Task.create({
-    TaskRows: {
-      ...newTask,
-    },
+    ...newTask,
   });
   return task;
 };
@@ -52,9 +54,7 @@ const updateTaskDb = async (taskId, updTask) => {
   const updateTask = await Task.updateOne(
     { _id: taskId },
     {
-      TaskRows: {
-        ...updTask,
-      },
+      ...updTask,
     }
   );
   return updateTask;

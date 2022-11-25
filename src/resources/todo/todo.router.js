@@ -18,7 +18,7 @@ router.get('/', (_, res) => {
 
 router.get('/todo', getTasks);
 router.get('/todo/:taskId', getTask);
-router.get('/todo/:page', getTasksAtPage);
+router.get('/todo/page/:page', getTasksAtPage);
 router.post('/todo', addTask);
 router.put('/todo/:taskId', updateTask);
 router.delete('/todo/:taskId', deleteTask);
