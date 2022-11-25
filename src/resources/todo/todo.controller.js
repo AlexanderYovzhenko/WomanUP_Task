@@ -31,6 +31,7 @@ const getTasks = async (req, res) => {
 const getTask = async (req, res) => {
   const { taskId } = req.params;
   if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(statusCode.BAD_REQUEST).send('ID is not valid');
   } else {
     const task = await getTaskDb(taskId);
@@ -80,6 +81,7 @@ const addTask = async (req, res) => {
 const updateTask = async (req, res) => {
   const { taskId } = req.params;
   if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(statusCode.BAD_REQUEST).send('ID is not valid');
   } else {
     const updateTask = req.body;
@@ -98,6 +100,7 @@ const updateTask = async (req, res) => {
 const deleteTask = async (req, res) => {
   const { taskId } = req.params;
   if (!mongoose.Types.ObjectId.isValid(taskId)) {
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(statusCode.BAD_REQUEST).send('ID is not valid');
   } else {
     await deleteTaskDb(taskId);

@@ -25,6 +25,7 @@ const checkToken = (req, res, next) => {
 
   if (autHeader === undefined) {
     console.error(textError);
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(statusCode.FORBIDDEN).send(textError);
     return;
   } else {
@@ -35,11 +36,13 @@ const checkToken = (req, res, next) => {
         jwt.verify(token, JWT_SECRET_KEY);
       } catch (error) {
         console.error(textError);
+        res.header('Access-Control-Allow-Origin', '*');
         res.status(statusCode.FORBIDDEN).send(textError);
         return;
       }
     } else {
       console.error(textError);
+      res.header('Access-Control-Allow-Origin', '*');
       res.status(statusCode.FORBIDDEN).send(textError);
       return;
     }

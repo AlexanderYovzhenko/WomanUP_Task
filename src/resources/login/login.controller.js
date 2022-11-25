@@ -14,6 +14,7 @@ const userRegistration = async (req, res) => {
   const newUser = req.body;
   const user = await getUserDb(newUser.login);
   if (user.length) {
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(statusCode.BAD_REQUEST).send('Login is busy!');
   } else {
     const hashPassword = await setHashPassword(newUser.password);
@@ -35,6 +36,7 @@ const userAuthorization = async (req, res) => {
   const userArr = await getUserDb(login);
 
   if (!userArr.length) {
+    res.header('Access-Control-Allow-Origin', '*');
     res.status(statusCode.UNAUTHORIZED).send(notCorrectAuthorization);
     return;
   } else {
@@ -46,8 +48,10 @@ const userAuthorization = async (req, res) => {
       const token = jwt.sign({ id: userArr[0]._id }, JWT_SECRET_KEY, {
         expiresIn: 86400,
       });
+      res.header('Access-Control-Allow-Origin', '*');
       res.status(statusCode.OK).send({ token });
     } else {
+      res.header('Access-Control-Allow-Origin', '*');
       res.status(statusCode.UNAUTHORIZED).send(notCorrectAuthorization);
     }
   }
