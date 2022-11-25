@@ -15,7 +15,11 @@ const checkToken = (req, res, next) => {
   const path = req.path;
   const autHeader = req.headers.authorization;
 
-  if (path === '/login/registration'|| path === '/login/authorization' || path === '/') {
+  if (
+    path === '/login/registration' ||
+    path === '/login/authorization' ||
+    path === '/'
+  ) {
     return next();
   }
 
