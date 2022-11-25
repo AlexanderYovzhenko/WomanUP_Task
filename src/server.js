@@ -1,5 +1,9 @@
 import { PORT } from './common/config';
 import { app as server } from './app';
+import mongoose from 'mongoose';
+
+const uri =
+  'mongodb+srv://Golden_Man:diMD2xwnxtSkU5Oi@cluster0.3d2ossl.mongodb.net/todo?retryWrites=true&w=majority';
 
 /**
  * Run the server!
@@ -9,6 +13,7 @@ import { app as server } from './app';
  */
 const startServer = async () => {
   try {
+    await mongoose.connect(uri);
     server.listen(PORT, '0.0.0.0', () =>
       console.info(`App is running on http://localhost:${PORT}`)
     );
