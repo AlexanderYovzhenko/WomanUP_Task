@@ -20,12 +20,12 @@ const userAuthorization = async (req, res) => {
   const { login, password } = req.body;
   const result = await getUserDb(login);
   if (result.length && result[0].password === password) {
-    const token = jwt.sign({ id: result._id }, JWT_SECRET_KEY, {
+    const token = jwt.sign({ id: result[0]._id }, JWT_SECRET_KEY, {
       expiresIn: 86400,
     });
     res.status(statusCode.OK).send({ token });
   } else {
-    res.status(statusCode.BAD_REQUEST).send(notCorrectAuthorization);
+    res.status(statusCode.UNAUTHORIZED).send(notCorrectAuthorization);
   }
 };
 

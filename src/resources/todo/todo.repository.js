@@ -12,7 +12,6 @@ const getTasksDb = async (paramFilter) => {
         "$exists": true
       }}
     `;
-    console.log(paramFilter);
     const tasks = await Task.find(JSON.parse(templateFilterJSON));
     return tasks;
   } else {
