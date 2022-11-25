@@ -2,11 +2,23 @@ import Task from './todo.model';
 
 /**
  * Returns all tasks(Task)
+ * @param paramFilter param is filter
  * @returns array tasks
  */
-const getTasksDb = async () => {
-  const tasks = await Task.find();
-  return tasks;
+const getTasksDb = async (paramFilter) => {
+  if (paramFilter) {
+    const templateFilterJSON = `{ 
+      "${paramFilter}": {
+        "$exists": true
+      }}
+    `;
+    console.log(paramFilter);
+    const tasks = await Task.find(JSON.parse(templateFilterJSON));
+    return tasks;
+  } else {
+    const tasks = await Task.find();
+    return tasks;
+  }
 };
 
 /**

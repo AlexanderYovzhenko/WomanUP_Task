@@ -10,7 +10,8 @@ import {
 } from './todo.repository';
 
 const getTasks = async (req, res) => {
-  const tasks = await getTasksDb();
+  const { param = '' } = req.query;
+  const tasks = await getTasksDb(param);
   res.header('Access-Control-Allow-Origin', '*');
   res.status(statusCode.OK).send(tasks);
 };
@@ -28,7 +29,10 @@ const getTask = async (req, res) => {
 
 const getTasksAtPage = async (req, res) => {
   const pageParam = req.params.page;
-  const page = pageParam && typeof(pageParam === 'number') && +pageParam !== 0 ? pageParam : 1;
+  const page =
+    pageParam && typeof (pageParam === 'number') && +pageParam !== 0
+      ? pageParam
+      : 1;
   const amountItemAtPage = 3;
   const numberStartTasks = page * amountItemAtPage - amountItemAtPage;
   const tasks = await getTasksAtPageDb(numberStartTasks, amountItemAtPage);
