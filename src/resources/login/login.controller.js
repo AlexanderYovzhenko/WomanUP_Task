@@ -38,7 +38,10 @@ const userAuthorization = async (req, res) => {
     res.status(statusCode.UNAUTHORIZED).send(notCorrectAuthorization);
     return;
   } else {
-    const validPassword = await checkHashPassword(password, userArr[0].password);
+    const validPassword = await checkHashPassword(
+      password,
+      userArr[0].password
+    );
     if (validPassword) {
       const token = jwt.sign({ id: userArr[0]._id }, JWT_SECRET_KEY, {
         expiresIn: 86400,
