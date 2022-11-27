@@ -2,7 +2,7 @@
   "name": "womanup_task",
   "version": "1.0.0",
   "description": "API todo list",
-  "main": "src/server.js",
+  "main": "src/index.js",
   "type": "module",
   "engines": {
     "node": "16.x"
