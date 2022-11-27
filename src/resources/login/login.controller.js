@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import statusCode from '../../common/status.code';
 import { addUserDb, getUserDb } from './login.repository';
-import { JWT_SECRET_KEY } from '../../common/config';
+// import { JWT_SECRET_KEY } from '../../common/config';
 import { checkHashPassword, setHashPassword } from '../../bcrypt/bcrypt';
 
 /**
@@ -45,7 +45,7 @@ const userAuthorization = async (req, res) => {
       userArr[0].password
     );
     if (validPassword) {
-      const token = jwt.sign({ id: userArr[0]._id }, JWT_SECRET_KEY, {
+      const token = jwt.sign({ id: userArr[0]._id }, 'secret-key', {
         expiresIn: 86400,
       });
       res.header('Access-Control-Allow-Origin', '*');

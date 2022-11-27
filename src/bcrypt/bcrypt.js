@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import { SALT_HASH_PASSWORD_ROUNDS } from '../common/config';
+// import { SALT_HASH_PASSWORD_ROUNDS } from '../common/config';
 
 /**
  * Hashing password for a new user
@@ -7,7 +7,7 @@ import { SALT_HASH_PASSWORD_ROUNDS } from '../common/config';
  * @returns hash password
  */
 const setHashPassword = async (password) => {
-  const salt = await bcrypt.genSalt(+SALT_HASH_PASSWORD_ROUNDS);
+  const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(password, salt);
 
   return hashPassword;
