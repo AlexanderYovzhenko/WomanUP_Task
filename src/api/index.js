@@ -1,5 +1,5 @@
-import { PORT } from './common/config';
-import { app as server } from './app';
+import { PORT, URL_DB } from '../common/config';
+import { app as server } from '../app';
 import mongoose from 'mongoose';
 
 /**
@@ -10,8 +10,8 @@ import mongoose from 'mongoose';
  */
 const startServer = async () => {
   try {
-    await mongoose.connect('mongodb+srv://Golden_Man:diMD2xwnxtSkU5Oi@cluster0.3d2ossl.mongodb.net/todo?retryWrites=true&w=majority');
-    server.listen(4000, '0.0.0.0', () =>
+    await mongoose.connect(URL_DB);
+    server.listen(PORT, '0.0.0.0', () =>
       console.info(`App is running on ${PORT}`)
     );
   } catch (err) {
