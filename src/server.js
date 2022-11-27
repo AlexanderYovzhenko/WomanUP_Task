@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
  * Run the server!
  * Listening on a port and displaying a message in the log.
  * If error then exit process and displaying a message about error in the log.
- * @returns void
+ * @returns {void} void
  */
 const startServer = async () => {
   try {
