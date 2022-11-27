@@ -2,8 +2,8 @@ import Task from './todo.model';
 
 /**
  * Returns all tasks(Task)
- * @param paramFilter param is filter
- * @returns array tasks
+ * @param {string} paramFilter param is filter
+ * @returns {object[]} array tasks
  */
 const getTasksDb = async (paramFilter) => {
   if (paramFilter) {
@@ -22,8 +22,8 @@ const getTasksDb = async (paramFilter) => {
 
 /**
  * Returns object task with ID task equal taskID
- * @param taskID first argument ID task
- * @returns Object task with ID task or null
+ * @param {string} taskId first argument ID task
+ * @returns {object} Object task with ID task
  */
 const getTaskDb = async (taskId) => {
   const task = await Task.find({ _id: taskId });
@@ -32,9 +32,9 @@ const getTaskDb = async (taskId) => {
 
 /**
  * Returns array tasks of need page(Task)
- * @param numberStartTasks number start need task
- * @param amountItemAtPage amount task in page
- * @returns array tasks
+ * @param {number} numberStartTasks number start need task
+ * @param {number} amountItemAtPage amount task in page
+ * @returns {object[]} array tasks
  */
 const getTasksAtPageDb = async (numberStartTasks, amountItemAtPage) => {
   const tasks = await Task.find()
@@ -45,8 +45,8 @@ const getTasksAtPageDb = async (numberStartTasks, amountItemAtPage) => {
 
 /**
  * Add object new task in array tasks(Task)
- * @param task first argument new task
- * @returns new task
+ * @param {object} newTask first argument new task
+ * @returns {object} new task
  */
 const addTaskDb = async (newTask) => {
   const task = await Task.create({
@@ -57,9 +57,9 @@ const addTaskDb = async (newTask) => {
 
 /**
  * Update object task with ID task equal taskID in array tasks(Task)
- * @param taskID first argument ID task
- * @param updTask second argument object update task
- * @returns updateTask
+ * @param {string} taskId first argument ID task
+ * @param {object} updTask second argument object update task
+ * @returns {object} info about updateTask
  */
 const updateTaskDb = async (taskId, updTask) => {
   const updateTask = await Task.updateOne(
@@ -73,7 +73,7 @@ const updateTaskDb = async (taskId, updTask) => {
 
 /**
  * Delete object task with ID task equal taskID in array tasks(Task)
- * @param taskID first argument ID task
+ * @param {string} taskID first argument ID task
  * @returns void
  */
 const deleteTaskDb = async (taskId) => {

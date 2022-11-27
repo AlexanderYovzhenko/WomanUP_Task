@@ -6,8 +6,8 @@ import { checkHashPassword, setHashPassword } from '../../bcrypt/bcrypt';
 
 /**
  * Registration new user or error if login is busy
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const userRegistration = async (req, res) => {
@@ -26,8 +26,8 @@ const userRegistration = async (req, res) => {
 
 /**
  * Check login and password user. Get token correct user
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const userAuthorization = async (req, res) => {

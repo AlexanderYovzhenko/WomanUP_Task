@@ -11,8 +11,8 @@ import {
 
 /**
  * Get all tasks
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const getTasks = async (req, res) => {
@@ -24,8 +24,8 @@ const getTasks = async (req, res) => {
 
 /**
  * Get task by id
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const getTask = async (req, res) => {
@@ -42,8 +42,8 @@ const getTask = async (req, res) => {
 
 /**
  * Get tasks by number page
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const getTasksAtPage = async (req, res) => {
@@ -61,8 +61,8 @@ const getTasksAtPage = async (req, res) => {
 
 /**
  * Add new task to db
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const addTask = async (req, res) => {
@@ -74,8 +74,8 @@ const addTask = async (req, res) => {
 
 /**
  * Update task by id to db
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const updateTask = async (req, res) => {
@@ -93,8 +93,8 @@ const updateTask = async (req, res) => {
 
 /**
  * Delete task by id to db
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const deleteTask = async (req, res) => {

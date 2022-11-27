@@ -8,8 +8,8 @@ const __dirname = path.dirname(__filename);
 
 /**
  * Upload file
- * @param req request
- * @param res response
+ * @param {object} req request
+ * @param {object} res response
  * @returns void
  */
 const uploadFile = async (req, res) => {

@@ -5,10 +5,10 @@ import statusCode from '../common/status.code';
 /**
  * Intermediate function
  * Checks for a valid token
- * @param req first argument request
- * @param res second argument response
- * @param next for next
- * @returns void
+ * @param {object} req first argument request
+ * @param {object} res second argument response
+ * @param {any} next for next
+ * @returns {any} void
  */
 const checkToken = (req, res, next) => {
   const textError = 'Authorization Error!';

@@ -3,8 +3,8 @@ import { SALT_HASH_PASSWORD_ROUNDS } from '../common/config';
 
 /**
  * Hashing password for a new user
- * @param password password of user
- * @returns hash password
+ * @param {string} password password of user
+ * @returns {string} hash password
  */
 const setHashPassword = async (password) => {
   const salt = await bcrypt.genSalt(+SALT_HASH_PASSWORD_ROUNDS);
@@ -15,9 +15,9 @@ const setHashPassword = async (password) => {
 
 /**
  * Check password of user and password hash of user of db
- * @param password password of user
- * @param checkPassword password of user of db
- * @returns boolean check
+ * @param {string} password password of user
+ * @param {string} checkPassword password of user of db
+ * @returns {boolean} boolean check
  */
 const checkHashPassword = async (password, checkPassword) => {
   const validPassword = await bcrypt.compare(password, checkPassword);
