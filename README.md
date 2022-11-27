@@ -4,7 +4,7 @@
 <p>
   <h2 align="center">Documentation for endpoints</h2>
   <h3>Home <a href="https://womanup-task.herokuapp.com/" target="blank">womanup-task.herokuapp.com</a> - home page, check if the server is running</h3>
-  <h3>Static file <a href="https://womanup-task.herokuapp.com/robot" target="blank">womanup-task.herokuapp.com/robot</a> - view static file</h3>
+  <h3>Static file <a href="https://womanup-task.herokuapp.com/robot.jpeg" target="blank">womanup-task.herokuapp.com/robot.jpeg</a> - view static file</h3>
   <br>
   <ul>
     <li><h3><u>womanup-task.herokuapp.com/login/registration</u> - registration</h3> 
