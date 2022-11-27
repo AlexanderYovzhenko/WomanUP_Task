@@ -2,14 +2,14 @@
   "name": "womanup_task",
   "version": "1.0.0",
   "description": "API todo list",
-  "main": "src/api/index.js",
+  "main": "api/index.js",
   "type": "module",
   "engines": {
     "node": "16.x"
   },
   "scripts": {
-    "start": "node --es-module-specifier-resolution=node src/api/index.js",
-    "start:dev": "nodemon --es-module-specifier-resolution=node src/api/index.js",
+    "start": "node --es-module-specifier-resolution=node api/index.js",
+    "start:dev": "nodemon --es-module-specifier-resolution=node api/index.js",
     "lint": "eslint --ext .js --fix src/",
     "format": "prettier --write src/"
   },

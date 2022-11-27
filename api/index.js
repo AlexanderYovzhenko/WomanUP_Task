@@ -1,5 +1,5 @@
-import { PORT, URL_DB } from '../common/config';
-import { app as server } from '../app';
+import { PORT, URL_DB } from '../src/common/config';
+import { app as server } from '../src/app';
 import mongoose from 'mongoose';
 
 /**
