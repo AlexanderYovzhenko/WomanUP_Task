@@ -12,7 +12,7 @@
     "start:dev": "nodemon --es-module-specifier-resolution=node src/server.js",
     "lint": "eslint --ext .js --fix src/",
     "format": "prettier --write src/",
-    "jsdoc:generate": " jsdoc -r ./src"
+    "jsdoc:generate": "jsdoc -r ./src"
   },
   "repository": {
     "type": "git",
