@@ -15,11 +15,13 @@ const userRegistration = async (req, res) => {
   const user = await getUserDb(newUser.login);
   if (user.length) {
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(statusCode.BAD_REQUEST).send('Login is busy!');
   } else {
     const hashPassword = await setHashPassword(newUser.password);
     const user = await addUserDb({ ...newUser, password: hashPassword });
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(statusCode.CREATED).send(user);
   }
 };
@@ -37,6 +39,7 @@ const userAuthorization = async (req, res) => {
 
   if (!userArr.length) {
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(statusCode.UNAUTHORIZED).send(notCorrectAuthorization);
     return;
   } else {
@@ -49,9 +52,11 @@ const userAuthorization = async (req, res) => {
         expiresIn: 86400,
       });
       res.header('Access-Control-Allow-Origin', '*');
+      res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
       res.status(statusCode.OK).send({ token });
     } else {
       res.header('Access-Control-Allow-Origin', '*');
+      res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
       res.status(statusCode.UNAUTHORIZED).send(notCorrectAuthorization);
     }
   }

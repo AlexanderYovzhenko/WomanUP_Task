@@ -19,16 +19,19 @@ const uploadFile = async (req, res) => {
 
     if (fs.existsSync(pathFile)) {
       res.header('Access-Control-Allow-Origin', '*');
+      res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
       res.status(statusCode.BAD_REQUEST).send('File already exist');
       return;
     }
 
     file.mv(pathFile);
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(statusCode.CREATED).send(`File ${file.name} upload`);
   } catch (error) {
     console.error(error);
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(statusCode.INTERNAL_SERVER_ERROR).send('Upload error');
   }
 };

@@ -22,6 +22,7 @@ const checkToken = (req, res, next) => {
   if (autHeader === undefined) {
     console.error(textError);
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(statusCode.FORBIDDEN).send(textError);
     return;
   } else {
@@ -33,12 +34,14 @@ const checkToken = (req, res, next) => {
       } catch (error) {
         console.error(textError);
         res.header('Access-Control-Allow-Origin', '*');
+        res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
         res.status(statusCode.FORBIDDEN).send(textError);
         return;
       }
     } else {
       console.error(textError);
       res.header('Access-Control-Allow-Origin', '*');
+      res.header('Cache-Control', 's-max-age=1, stale-while-revalidate');
       res.status(statusCode.FORBIDDEN).send(textError);
       return;
     }
