@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
  */
 const startServer = async () => {
   try {
-    mongoose.connect(URL_DB);
+    await mongoose.connect(URL_DB);
     server.listen(PORT, () =>
       console.info(`App is running on ${PORT}`)
     );
