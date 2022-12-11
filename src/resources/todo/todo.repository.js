@@ -1,4 +1,4 @@
-import Task from './todo.model';
+import Task from './todo.model.js';
 
 /**
  * Returns all tasks(Task)

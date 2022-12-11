@@ -1,5 +1,5 @@
 import express from 'express';
-import statusCode from '../../common/status.code';
+import statusCode from '../../common/status.code.js';
 import {
   addTask,
   deleteTask,
@@ -7,7 +7,7 @@ import {
   getTasks,
   getTasksAtPage,
   updateTask,
-} from './todo.controller';
+} from './todo.controller.js';
 
 const router = express.Router();
 

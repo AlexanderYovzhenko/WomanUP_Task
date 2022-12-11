@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import { SALT_HASH_PASSWORD_ROUNDS } from '../common/config';
+import { SALT_HASH_PASSWORD_ROUNDS } from '../common/config.js';
 
 /**
  * Hashing password for a new user

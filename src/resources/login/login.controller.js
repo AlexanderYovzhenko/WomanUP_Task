@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
-import statusCode from '../../common/status.code';
-import { addUserDb, getUserDb } from './login.repository';
-import { JWT_SECRET_KEY } from '../../common/config';
-import { checkHashPassword, setHashPassword } from '../../bcrypt/bcrypt';
+import statusCode from '../../common/status.code.js';
+import { addUserDb, getUserDb } from './login.repository.js';
+import { JWT_SECRET_KEY } from '../../common/config.js';
+import { checkHashPassword, setHashPassword } from '../../bcrypt/bcrypt.js';
 
 /**
  * Registration new user or error if login is busy

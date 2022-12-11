@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import statusCode from '../../common/status.code';
+import statusCode from '../../common/status.code.js';
 import {
   addTaskDb,
   deleteTaskDb,
@@ -7,7 +7,7 @@ import {
   getTasksAtPageDb,
   getTasksDb,
   updateTaskDb,
-} from './todo.repository';
+} from './todo.repository.js';
 
 /**
  * Get all tasks

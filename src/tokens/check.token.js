@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET_KEY } from '../common/config';
-import statusCode from '../common/status.code';
+import { JWT_SECRET_KEY } from '../common/config.js';
+import statusCode from '../common/status.code.js';
 
 /**
  * Intermediate function

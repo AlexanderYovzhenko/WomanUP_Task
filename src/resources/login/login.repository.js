@@ -1,4 +1,4 @@
-import User from './login.model';
+import User from './login.model.js';
 
 /**
  * Returns object user with login user equal login
