@@ -1,6 +1,6 @@
 import { PORT, URL_DB } from './common/config.js';
 import { app as server } from './app.js';
-import mongoose from 'mongoose';
+import * as mongodb from 'mongoose';
 
 /**
  * Run the server!
@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
  */
 const startServer = async () => {
   try {
-    await mongoose.connect(URL_DB);
+    mongodb.connect(URL_DB);
     server.listen(PORT, () =>
       console.info(`App is running on ${PORT}`)
     );
