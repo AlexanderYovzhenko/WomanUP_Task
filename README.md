@@ -2,23 +2,23 @@
 
 <p>
   <h2 align="center">Documentation for endpoints</h2>
-  <h3>Home <a href="https://womanup-task.herokuapp.com/" target="blank">womanup-task.herokuapp.com</a> - home page, check if the server is running</h3>
-  <h3>Static file <a href="https://womanup-task.herokuapp.com/robot.jpeg" target="blank">womanup-task.herokuapp.com/robot.jpeg</a> - view static file</h3>
+  <h3>Home <a href="https://woman-up-task.vercel.app/" target="blank">woman-up-task.vercel.app</a> - home page, check if the server is running</h3>
+  <h3>Static file <a href="https://woman-up-task.vercel.app/robot.jpeg" target="blank">woman-up-task.vercel.app/robot.jpeg</a> - view static file</h3>
   <br>
   <ul>
-    <li><h3><u>womanup-task.herokuapp.com/login/registration</u> - registration</h3> 
+    <li><h3><u>woman-up-task.vercel.app/login/registration</u> - registration</h3> 
       <ul>
         <li><font color="4040ff">POST</font> <u>login/registration</u> - JSON (login, password)</li> 
       </ul>
     </li>
     <br>
-    <li><h3><u>womanup-task.herokuapp.com/login/authorization</u> - authorization</h3> 
+    <li><h3><u>woman-up-task.vercel.app/login/authorization</u> - authorization</h3> 
       <ul>
         <li><font color="4040ff">POST</font> <u>login/authorization</u> - get token, JSON (login, password)</li> 
       </ul>
     </li>
     <br>
-    <li><h3><u>womanup-task.herokuapp.com/todo</u> - requires authorization(header: authorization Bearer token)</h3> 
+    <li><h3><u>woman-up-task.vercel.app/todo</u> - requires authorization(header: authorization Bearer token)</h3> 
       <ul>
         <li><font color="4040ff">POST</font> <u>todo</u> - add task, JSON (any amount rows task of todo)</li>
         <li><font color="green">GET</font> <u>todo?param=any</u> - get all tasks for db todo, QueryParam('?param = any row' - for filtered array tasks)</li>
@@ -29,7 +29,7 @@
       </ul>
     </li>
     <br>
-    <li><h3><u>womanup-task.herokuapp.com/file</u> - upload file</h3> 
+    <li><h3><u>woman-up-task.vercel.app/file</u> - upload file</h3> 
       <ul>
         <li><font color="4040ff">POST</font> <u>file</u> - upload file, key - file</li>
       </ul>
